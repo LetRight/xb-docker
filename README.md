@@ -1,1 +1,58 @@
-等待添加
+
+### xboard-docker php-fpm81 安装指南
+
+#### 1. 安装所需组件
+安装 `curl` 和 `git`：
+```bash
+apt install curl git -y
+```
+
+#### 2. 安装 Docker
+使用以下命令安装 Docker：
+```bash
+curl -fsSL https://get.docker.com | bash -s docker
+```
+
+#### 3. 克隆仓库
+克隆 Git 仓库并初始化子模块：
+```bash
+git clone --recurse-submodules https://github.com/LetRight/xb-docker.git && cd xb-docker
+```
+
+#### 4. 启动容器
+使用 Docker Compose 启动服务：
+```bash
+docker compose up -d
+```
+
+#### 5. 进入容器
+进入运行中的 Docker 容器：
+```bash
+docker exec -ti xboard bash
+```
+
+#### 6. 初始化 PHP 环境
+安装 Composer 并初始化 PHP 环境：
+```bash
+wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
+php composer.phar install -vvv
+php artisan xboard:install
+```
+
+该容器环境中没有内置 MySQL 服务，并且需要连接到安装在宿主机上的 MySQL 数据库，请在数据库连接设置中使用地址 172.17.0.1 作为服务器地址。
+
+此外，为了确保容器可以成功连接到宿主机的 MySQL，您需要配置 MySQL 以允许来自 172.%.%.% 网段的连接请求。这涉及到调整 MySQL 的权限设置，以便为 Docker 容器提供适当的访问权限。
+
+
+#### 7. 重启容器
+退出容器并重启所有服务：
+```bash
+exit 
+docker compose restart 
+```
+
+#### 8. Nginx 配置反向代理
+创建一个新的 Nginx 网站配置，将其反向代理至 `https://127.0.0.1:28443`。
+
+
+

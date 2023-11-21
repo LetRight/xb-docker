@@ -1,0 +1,14 @@
+version: '3'
+services:
+  www:
+    image: xb
+    volumes:
+      - './www:/www'
+      - './wwwlogs:/wwwlogs'
+      - './Caddyfile:/run/caddy/Caddyfile'
+      - './supervisord.conf:/run/supervisor/supervisord.conf'
+      - './crontabs.conf:/etc/crontabs/root'
+      - './cert:/cert'
+    ports:
+    - "28443:443"
+    restart: always

@@ -1,0 +1,23 @@
+https://:443 {
+
+
+    
+    
+    
+    root * /www/public
+
+    @php {
+        path_regexp phpPath ^/(.*\.php)$
+    }
+
+    rewrite @php /index.php?{query}
+
+    php_fastcgi unix//tmp/php-cgi.sock {
+        index index.php
+    }
+
+    file_server
+
+    tls /cert/fullchain.pem /cert/privkey.pem
+}
+

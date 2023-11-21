@@ -6,6 +6,7 @@
 ```bash
 apt install curl git -y
 ```
+此外，宿主机需要安装nginx和mysql服务，可使用aapanel，或手搓，请自便
 
 #### 2. 安装 Docker
 使用以下命令安装 Docker：

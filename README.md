@@ -40,7 +40,7 @@ docker exec -ti xboard sh
 
 
 
-#### 6. 初始化 PHP 环境
+#### 7. 初始化 PHP 环境
 修改WebMan监听ip
 ```bash
 sed -i 's/127.0.0.1/0.0.0.0/g' /www/webman.php
@@ -58,13 +58,13 @@ php artisan xboard:install
 此外，为了确保容器可以成功连接到宿主机的 MySQL，您需要配置 MySQL 以允许来自 172.%.%.% 网段的连接请求。这涉及到调整 MySQL 的权限设置，以便为 Docker 容器提供适当的访问权限。
 
 
-#### 7. 重启容器
+#### 8. 重启容器
 退出容器并重启所有服务：
 ```bash
 exit 
 docker compose restart 
 ```
 
-#### 8. Nginx 配置反向代理
+#### 9. Nginx 配置反向代理
 创建一个新的 Nginx 网站配置，将其反向代理至 `http://127.0.0.1:7010`。
 

@@ -1,7 +1,7 @@
 version: '3'
 services:
   www:
-    image: xb
+    image: ghcr.io/letright/xb-docker:php-fpm81
     volumes:
       - './www:/www'
       - './wwwlogs:/wwwlogs'

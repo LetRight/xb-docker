@@ -2,6 +2,7 @@ version: '3'
 services:
   www:
     image: ghcr.io/letright/xb-docker:php-fpm81
+    container_name: xboard
     volumes:
       - './www:/www'
       - './wwwlogs:/wwwlogs'

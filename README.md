@@ -16,7 +16,7 @@ curl -fsSL https://get.docker.com | bash -s docker
 #### 3. 克隆仓库
 克隆 Git 仓库并初始化子模块：
 ```bash
-git clone --recurse-submodules https://github.com/LetRight/xb-docker.git && cd xb-docker
+git clone  -b php-fpm81 --depth 1  --recurse-submodules https://github.com/LetRight/xb-docker.git && cd xb-docker
 ```
 
 #### 4. 启动容器

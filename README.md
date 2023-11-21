@@ -43,19 +43,14 @@ docker exec -ti xboard sh
 ```
 
 
-
 #### 7. 初始化 PHP 环境
-修改WebMan监听ip
-```bash
-sed -i 's/127.0.0.1/0.0.0.0/g' /www/webman.php
-```
+
 安装 Composer 并初始化 PHP 环境：
 ```bash
 wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
 php composer.phar install -vvv
 php artisan xboard:install
 ```
-
 
 该容器环境中没有内置 MySQL 服务，并且需要连接到安装在宿主机上的 MySQL 数据库，请在数据库连接设置中使用地址 172.17.0.1 作为服务器地址。
 

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  www:
+    image: xboard
+    container_name: xboard
+    volumes:
+      - './www:/www'
+      - './wwwlogs:/wwwlogs'
+    ports:
+    - "127.0.0.1:7010:7010"
+
+    restart: always
+

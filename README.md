@@ -19,6 +19,10 @@ curl -fsSL https://get.docker.com | bash -s docker
 ```bash
 git clone  -b webman --depth 1  --recurse-submodules https://github.com/LetRight/xb-docker.git && cd xb-docker
 ```
+升级网站代码到最新版本：
+```bash
+cd www && git pull && cd ..
+```
 
 #### 4. 构建容器容器
 
